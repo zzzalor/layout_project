@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подтверждение почты — письмо</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b1220;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      color: #e5e7eb;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    
+    body {
+      padding: 24px 12px;
+    }
+    
+    .wrapper {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #020617, #0b1120);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+    
+    .top-bar {
+      padding: 14px 20px;
+      background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.4), transparent 60%),
+                  radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.4), transparent 60%),
+                  #020617;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+    }
+    
+    .top-inner {
+      display: table;
+      width: 100%;
+    }
+    
+    .top-logo,
+    .top-meta {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    
+    .top-meta {
+      text-align: right;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    
+    .logo-mark {
+      display: inline-block;
+      vertical-align: middle;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #6366f1);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 10px 22px rgba(15, 23, 42, 0.9);
+      text-align: center;
+      line-height: 28px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #020617;
+      margin-right: 8px;
+    }
+    
+    .logo-text {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+    
+    .top-meta-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      margin-bottom: 4px;
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+    
+    .top-meta-text {
+      display: block;
+      margin-top: 2px;
+    }
+    
+    .top-meta-text span {
+      color: #e5e7eb;
+    }
+    
+    .content {
+      padding: 24px 22px 22px;
+    }
+    
+    .hello {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      color: #f9fafb;
+    }
+    
+    .text {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cbd5f5;
+      margin-bottom: 18px;
+    }
+    
+    .code-box {
+      border-radius: 16px;
+      background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.2), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.25), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      padding: 18px 18px 16px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    
+    .code-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    
+    .code-value {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(165, 180, 252, 0.85);
+      box-shadow:
+        0 0 0 1px rgba(30, 64, 175, 0.7),
+        0 14px 30px rgba(15, 23, 42, 0.9);
+      font-size: 22px;
+      letter-spacing: 0.32em;
+      font-variant-numeric: tabular-nums;
+      color: #e5e7eb;
+      margin-bottom: 6px;
+    }
+    
+    .code-meta {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    
+    .button-wrap {
+      text-align: center;
+      margin: 20px 0 18px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 11px 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0% 0%, #f97316, transparent 60%),
+                  linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      box-shadow:
+        0 0 0 1px rgba(129, 140, 248, 0.7),
+        0 18px 34px rgba(15, 23, 42, 0.95);
+      white-space: nowrap;
+    }
+    
+    .button span {
+      margin-left: 6px;
+      font-size: 15px;
+    }
+    
+    .link-alt {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #9ca3af;
+      margin-bottom: 18px;
+      word-break: break-all;
+    }
+    
+    .link-alt a {
+      color: #c4b5fd;
+      text-decoration: underline;
+      text-decoration-color: rgba(196, 181, 253, 0.7);
+    }
+    
+    .security-note {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+    
+    .security-note strong {
+      color: #e5e7eb;
+    }
+    
+    .meta {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #6b7280;
+      border-top: 1px dashed rgba(75, 85, 99, 0.85);
+      padding: 12px 22px 14px;
+      background: #020617;
+    }
+    
+    .meta-row {
+      margin-bottom: 4px;
+    }
+    
+    .meta-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .meta-label {
+      color: #9ca3af;
+    }
+    
+    .meta-value {
+      color: #e5e7eb;
+    }
+    
+    .meta-small {
+      font-size: 10px;
+      color: #4b5563;
+      margin-top: 6px;
+    }
+    
+    /* Мобильные устройства (портретные и большинство горизонтальных телефонов) */
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 10px;
+      }
+    
+      .wrapper {
+        border-radius: 14px;
+        box-shadow:
+          0 12px 26px rgba(15, 23, 42, 0.8),
+          0 0 0 1px rgba(15, 23, 42, 0.9);
+      }
+    
+      .content {
+        padding: 18px 16px 16px;
+      }
+    
+      .title {
+        font-size: 18px;
+      }
+    
+      .code-value {
+        font-size: 20px;
+        padding: 7px 16px;
+      }
+    
+      .button {
+        display: block;
+        width: 100%;
+        white-space: normal;
+        font-size: 13px;
+        padding: 10px 18px;
+      }
+    }
+    
+    /* Планшеты (планшеты и небольшие ноутбуки) */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      body {
+        padding: 32px 20px;
+      }
+    
+      .wrapper {
+        max-width: 720px;
+      }
+    
+      .content {
+        padding: 26px 26px 24px;
+      }
+    
+      .title {
+        font-size: 21px;
+      }
+    
+      .text {
+        font-size: 14px;
+      }
+    }
+    
+    /* Крупные экраны (Mac / десктопы) */
+    @media (min-width: 1200px) {
+      body {
+        padding: 40px 0;
+      }
+    
+      .wrapper {
+        max-width: 720px;
+      }
+    
+      .title {
+        font-size: 22px;
+      }
+    
+      .text {
+        font-size: 14px;
+      }
+    }
+    
+    
+    
+    
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top-bar">
+      <div class="top-inner">
+        <div class="top-logo">
+          <span class="logo-mark">N</span>
+          <span class="logo-text">neflodesign</span>
+        </div>
+        <div class="top-meta">
+          <span class="top-meta-pill">E-posti aadressi kinnitamine</span>
+          <span class="top-meta-text">
+            Saadetud: <span>15. dets 2025, 21:48</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <p class="hello">Tere, {{user.name}}!</p>
+      <p class="title">Kinnitage oma e-posti aadress</p>
+      <p class="text">
+        Sa oma e-posti aadressiks määrasime sisse logimiseks ja parooli taastamiseks
+        <strong>neflodesign</strong>. Et lõpetada profiili seadistamist ja lubada
+        kõik turvalisuse funktsioonid, kinnitage, et see e-posti aadress on sulle kuulub.
+      </p>
+
+      <div class="code-box">
+        <div class="code-label">Kinnituskood</div>
+        <div class="code-value">482&nbsp;193</div>
+        <div class="code-meta">
+          Sisesta see kood verifitseerimise lehele. Aktiivsusaeg on 10 minutit.
+        </div>
+      </div>
+
+      <div class="button-wrap">
+        <!-- URL замените на свой -->
+        <a href="#" class="button">
+          Kinnita e-post
+          <span>→</span>
+        </a>
+      </div>
+
+      <p class="link-alt">
+        Kui nupp pole klõpsatav, kopeeri ja kleepi see link aadressi võrku lahtrisse:<br>
+        <a href="#">
+          https://example.com/verify-email?token={{user.token}}
+        </a>
+      </p>
+
+      <p class="security-note">
+        <strong>Kas sa ei soovinud seda e-kirja?</strong><br>
+        Lihtsalt ignoreeri seda. Sinu konto jääb seotult selle aadressiga, kuni sa ei kinnita e-posti. 
+        Ära saada seda e-kirja teistele inimestele ja ära avalda koodi avatud õigusega.
+      </p>
+    </div>
+
+    <div class="meta">
+      <div class="meta-row">
+        <span class="meta-label">Kellelt:</span>
+        <span class="meta-value">Turvalisus neflodesign &lt;no-reply@neflodesign.app&gt;</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Kellele:</span>
+        <span class="meta-value">{{user.email}}</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Teema:</span>
+        <span class="meta-value">E-posti aadressi kinnitamine</span>
+      </div>
+      <div class="meta-small">
+        See on süsteemi e-kirja. Palun ära vasta sellele. Kui sa ei registreerinud
+        kontot, saad seda sõnumit kustutada.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Письмо напоминание</title>
+
+  <!-- Подключаем Nunito -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style type="text/css">
+    /* Базовые стили для разных устройств */
+    body, table, td, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      border: 0;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+
+    table {
+      border-collapse: collapse !important;
+    }
+
+    /* Планшеты и телефоны */
+    @media only screen and (max-width: 768px) {
+      table.white-sheet {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      td.white-sheet-inner {
+        padding: 32px 20px 40px 20px !important;
+      }
+
+      .heading-main {
+        font-size: 32px !important;
+        text-align: left !important;
+      }
+
+      .heading-sub {
+        font-size: 18px !important;
+        text-align: left !important;
+      }
+
+      p.body-text {
+        font-size: 17px !important;
+      }
+    }
+
+    /* Небольшие телефоны */
+    @media only screen and (max-width: 480px) {
+      td.logo-cell,
+      td.header-text-cell {
+        display: block !important;
+        width: 100% !important;
+        text-align: left !important;
+      }
+
+      td.logo-cell {
+        padding-bottom: 16px !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#2A416B;">
+  <!-- фон письма -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+         width="100%"
+         style="border-collapse:collapse; background:#2A416B;
+                background:linear-gradient(to bottom right, #E4ECF7 0%, #E4ECF7 18%, #345085 55%, #2A416B 100%);">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+
+        <!-- белый лист -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+               width="1200" class="white-sheet"
+               style="width:1200px; max-width:1200px; background-color:#ffffff;">
+          <tr>
+            <td class="white-sheet-inner" style="padding:60px 80px 50px 80px; font-family:'Nunito', Arial, sans-serif;">
+              <!-- шапка: логотип + ФИО -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td class="logo-cell" valign="middle" style="width:260px;">
+                    <!-- блок ЮДОЛЬ + www.youdol.ru -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="width:120px; vertical-align:middle;">
+                          <img src="icon.png"
+                               alt="Логотип Юдоль"
+                               style="display:block; border:0; max-width:100%; height:auto;" />
+                        </td>
+                        <td style="padding-left:30px; vertical-align:middle;">
+                          <div style="color:#2A416B;
+                                      font-family:'Nunito', Arial, sans-serif;
+                                      font-weight:700;
+                                      font-size:14px;
+                                      letter-spacing:0.15em;
+                                      text-transform:uppercase;
+                                      margin-bottom:2px;">
+                            ЮДОЛЬ
+                          </div>
+                          <div style="color:#2A416B;
+                                      font-family:'Nunito', Arial, sans-serif;
+                                      font-weight:700;
+                                      font-size:12px;
+                                      letter-spacing:0.15em;
+                                      text-transform:uppercase;">
+                            <a href="https://www.youdol.ru"
+                               style="color:#2A416B; text-decoration:none;">
+                              WWW.YOUDOL.RU
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <!-- блок ПСИХОЛОГ-КОНСУЛЬТАНТ + ВИКТОР КОСЕНКОВ -->
+                  <td class="header-text-cell" align="center" valign="middle">
+                    <div class="heading-main" style="color:#2A416B;
+                                font-family:'Nunito', Arial, sans-serif;
+                                font-weight:700;
+                                font-size:50px;
+                                line-height:1.1;">
+                      ПСИХОЛОГ-КОНСУЛЬТАНТ
+                    </div>
+                    <div class="heading-sub" style="color:#2A416B;
+                                font-family:'Nunito', Arial, sans-serif;
+                                font-weight:700;
+                                font-size:24px;
+                                line-height:1.3;
+                                margin-top:4px;">
+                      ВИКТОР КОСЕНКОВ
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- отступ после шапки -->
+              <div style="height:40px; line-height:40px; font-size:0;">&nbsp;</div>
+
+              <!-- текст письма напоминания -->
+              <p class="body-text" style="margin:0 0 24px 0;
+                        color:rgba(42,65,107,0.8);
+                        font-family:'Nunito', Arial, sans-serif;
+                        font-weight:700;
+                        font-size:20px;
+                        line-height:1.6;">
+                УВАЖАЕМЫЙ(-АЯ) [ИМЯ ПОЛЬЗОВАТЕЛЯ],
+              </p>
+
+              <p class="body-text" style="margin:0 0 24px 0;
+                        color:rgba(42,65,107,0.8);
+                        font-family:'Nunito', Arial, sans-serif;
+                        font-weight:700;
+                        font-size:20px;
+                        line-height:1.6;">
+                ЗАВТРА СОСТОИТСЯ ВАША КОНСУЛЬТАЦИЯ.
+              </p>
+
+              <p class="body-text" style="margin:0 0 16px 0;
+                        color:rgba(42,65,107,0.8);
+                        font-family:'Nunito', Arial, sans-serif;
+                        font-weight:700;
+                        font-size:20px;
+                        line-height:1.6;">
+                ДЕТАЛИ ПРИЁМА:
+              </p>
+
+              <p class="body-text" style="margin:0 0 24px 0;
+                        color:rgba(42,65,107,0.8);
+                        font-family:'Nunito', Arial, sans-serif;
+                        font-weight:700;
+                        font-size:20px;
+                        line-height:1.6;">
+                ДАТА: [УКАЖИТЕ ДАТУ ПРИЁМА]<br/>
+                ВРЕМЯ: [УКАЖИТЕ ВРЕМЯ ПРИЁМА]<br/>
+                АДРЕС: [УКАЖИТЕ АДРЕС ПСИХОТЕРАПЕВТА]
+              </p>
+
+              <p class="body-text" style="margin:150px 0 0 0;
+                        color:rgba(42,65,107,0.8);
+                        font-family:'Nunito', Arial, sans-serif;
+                        font-weight:700;
+                        font-size:20px;
+                        line-height:1.6;">
+                С НАИЛУЧШИМИ ПОЖЕЛАНИЯМИ, [ИМЯ ПСИХОТЕРАПЕВТА]
+              </p>
+
+              <!-- отступ после текста -->
+              <div style="height:150px; line-height:40px; font-size:0;">&nbsp;</div>
+              
+              <!-- низ белого листа -->
+              <div style="height:60px; line-height:60px; font-size:0;">&nbsp;</div>
+
+              <!-- футер -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td align="center">
+                    <span style="color:#2A416B;
+                                 font-family:'Nunito', Arial, sans-serif;
+                                 font-weight:900; /* Nunito Black */
+                                 font-size:16px; /* соответствует примерно 37 pt в макете */
+                                 letter-spacing:0.15em;">
+                      ©&nbsp;&nbsp;
+                      <a href="https://www.youdol.ru"
+                         style="color:#2A416B; text-decoration:none;">
+                        WWW.YOUDOL.RU
+                      </a>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+
+
